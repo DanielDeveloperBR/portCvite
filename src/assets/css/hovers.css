@@ -1,0 +1,23 @@
+/*Os hover*/
+/*Links*/
+a:hover,
+footer a:hover {
+    text-decoration: underline;
+    opacity: 0.6;
+}
+
+/*Menu hambúrguer*/
+#burguer:hover {
+    cursor: pointer;
+    color: black
+}
+
+/*Botao do formulario de enviar*/
+.modeloFormulario button:hover {
+    opacity: 0.3;
+    font-size: 17px;
+}
+.habilidades img:hover{
+    transform: rotate(15deg) scale(1.9); 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
