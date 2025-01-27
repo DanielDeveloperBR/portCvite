@@ -4,7 +4,7 @@ import './assets/css/responsivo.css';
 import './assets/css/main.css';
 import './assets/css/hovers.css';
 import './assets/css/animacao.css';
-import { animacoes } from '@/utils/animacoes'; // Certifique-se de que o caminho está correto
+import { animacoes } from '@/utils/animacoes'; 
 import router from './router/index';
 import App from './App.vue';
 
