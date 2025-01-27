@@ -125,6 +125,13 @@ export default defineComponent({
     <h2>Projetos</h2>
     <section class="projetos" id="projetos">
       <div>
+        <h2>Controle de Estoque para Salão de Beleza</h2>
+        <img src="../assets/static/imgSalao.png" alt="Salão">
+        <article>Desenvolvimento de um sistema de gestão completo para um salão de beleza.
+        </article>
+        <p>Código: <strong style="color: red;">Restrito</strong></p>
+      </div>
+      <div>
         <h2>Api de Pokemon</h2>
         <img src="../assets/static/projetos/pokeApi.png" alt="API-Pokemon">
         <article>Fiz um mini projeto de pegar os personagens do pokémon. Ele retorna o nome, peso, altura e a
@@ -146,13 +153,6 @@ export default defineComponent({
         <article>Uma calculadora com funcionalidades de somar, subtrair, multiplicar e dividir</article>
         <p>Link: <a href="https://danieldeveloperbr.github.io/Minha-Calculadora/" target="_blank">Clica aqui</a>
         </p>
-      </div>
-      <div>
-        <h2>Controle de Estoque para Salão de Beleza</h2>
-        <img src="../assets/static/imgSalao.png" alt="Salão">
-        <article>Desenvolvimento de um sistema de gestão completo para um salão de beleza.
-        </article>
-        <p>Código: Restrito</p>
       </div>
       <div>
         <h2>Em breve</h2>
