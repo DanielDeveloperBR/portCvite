@@ -6,7 +6,7 @@ const recaptchaScriptLoaded = ref(false);
 
 onMounted(() => {
   const script = document.createElement('script');
-  script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_CHAVE_PUBLIC_TEST}`;
+  script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_CHAVE_PUBLICA}`;
   script.async = true;
   script.onload = () => {
     recaptchaScriptLoaded.value = true;
@@ -26,7 +26,7 @@ async function handlerSubmit(e: Event) {
   const mensagem = (document.querySelector('#mensagem') as HTMLTextAreaElement).value;
 
   try {
-    const token = await grecaptcha.execute(import.meta.env.VITE_CHAVE_PUBLIC_TEST, { action: 'submit' });
+    const token = await grecaptcha.execute(import.meta.env.VITE_CHAVE_PUBLICA, { action: 'submit' });
 
     // Valida o token no backend
     const recaptchaResponse = await fetch('/api/validateRecaptcha', {

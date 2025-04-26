@@ -155,10 +155,10 @@ export default defineComponent({
         </p>
       </div>
       <div>
-        <h2>Em breve</h2>
-        <img src="../assets/static/emBreve.png" alt="API-Pokemon">
-        <article>Em breve...</article>
-        <p>Link: <a href="https://github.com/DanielDeveloperBR/API-Pokemon" target="_blank">Clica aqui</a></p>
+        <h2>RPG Online de Turnos</h2>
+        <img src="../assets/static/projetos/jogo.png" alt="RPG de turnos">
+        <article>Um jogo online de 2 vs 2 onde você escolhe um personagem com uma única habilidade especial e com os seus atritubutos. O jogo têm 3 classes de personagens por enquanto que são: Bárbaro, Arqueiro e Mago.</article>
+        <p>Link: <a href="https://rpg-online-v5tk.onrender.com/" target="_blank">Clica aqui</a></p>
       </div>
       <div>
         <h2>Em breve</h2>
