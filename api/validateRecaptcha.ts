@@ -11,7 +11,7 @@ export default async function handler(req: any, res: any) {
 
     // Crie os parâmetros para a verificação do reCAPTCHA
     const recaptchaBody = new URLSearchParams({
-      'secret': process.env.CHAVE_SECRET_TEST || '',
+      'secret': process.env.CHAVE_SECRETA || '',
       'response': token,
     });
 
