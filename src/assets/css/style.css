@@ -222,7 +222,7 @@ main {
 }
 
 .projetos > div img{
-  max-width: 50%;
+  /* max-width: 50%; */
   margin: 15px auto;
 
 }
