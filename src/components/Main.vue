@@ -161,10 +161,10 @@ export default defineComponent({
         <p>Link: <a href="https://rpg-online-v5tk.onrender.com/" target="_blank">Clica aqui</a></p>
       </div>
       <div>
-        <h2>Em breve</h2>
-        <img src="../assets/static/emBreve.png" alt="API-Pokemon">
-        <article>Em breve...</article>
-        <p>Link: <a href="https://github.com/DanielDeveloperBR/API-Pokemon" target="_blank">Clica aqui</a></p>
+        <h2>Agendamento Expresso</h2>
+        <img src="../assets/static/projetos/agendamento expresso.png" alt="API-Pokemon">
+        <article>O agendamento Expresso é um sistema moderno e responsivo de agendamento de horários para estabelecimentos, desenvolvido com foco em usabilidade, segurança e escalabilidade. Ele permite que clientes reservem horários online de forma prática, enquanto o administrador tem acesso a uma interface limpa para gerenciar reservas.</article>
+        <p>Link: <a href="https://danieldeveloperbr.github.io/Projeto-ReservaNaLoja/" target="_blank">Clica aqui</a></p>
       </div>
     </section>
 
