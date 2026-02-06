@@ -27,7 +27,7 @@ h2 {
   text-align: center;
   margin: 40px auto;
   font-weight: bolder;
-  padding: 40px;
+  padding: 20px;
   background: linear-gradient(to right, transparent, var(--titulo), transparent);
 }
 
@@ -159,20 +159,19 @@ main {
 .habilidades {
   background-color: var(--section);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 800px;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1000px;
   margin: auto;
-  grid-gap: 20px;
-  padding: 10px;
+  gap: 20px;
+  padding: 20px;
   border-radius: 15px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.13);
 }
 
-.habilidades>ul {
+.habilidades > ul {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 20px;
-  justify-self: center;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 20px;
+  justify-items: center;
 }
 
 .habilidades>ul:nth-child(2) li img {
@@ -186,19 +185,15 @@ main {
   display: block;
   margin: auto; 
   border-radius: 10px;
-  box-shadow: 2px 2px 3px black;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
 }
 
-
-
 .habilidades > .descricao {
-  border-radius: 10px;
+  grid-column: 1 / -1; /* ocupa tudo */
   background-color: white;
-  grid-column: 4;
-  display: block;
-  text-indent: 10px;
-  padding: 10px;
-  line-height: 1.5em;
+  border-radius: 10px;
+  padding: 20px;
+  line-height: 1.6;
   text-align: justify;
 }
 
