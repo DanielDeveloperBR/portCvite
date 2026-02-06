@@ -45,78 +45,79 @@ export default defineComponent({
     <h2>Sobre mim</h2>
     <section class="sobre" id="sobre">
       <article>
-        Olá! Sou Daniel, um entusiasta de Tecnologia da Informação com habilidades em HTML, CSS, JavaScript
-        e
-        PHP,
-        além de conhecimentos em Java. Embora não tenha experiência profissional formal, sou dedicado a
-        aprimorar
-        minhas habilidades e construir projetos pessoais que demonstrem meu conhecimento técnico.
-        Minha paixão pela programação e desenvolvimento web me levou a explorar diferentes projetos
-        independentes,
-        nos quais me desafiei a criar sites e aplicativos interativos. Esses projetos me permitiram aplicar
-        os
-        conceitos que aprendi e me aperfeiçoar em áreas como design responsivo, experiência do usuário e
-        otimização
-        de desempenho.
+        Sou Daniel Souza, desenvolvedor Full Stack com foco em backend, arquitetura de sistemas
+        e segurança de aplicações web. Atuo na construção de soluções robustas e escaláveis,
+        com atenção especial à confiabilidade, controle de acesso e integridade dos dados.
         <br><br>
-        Estou constantemente atualizado sobre as tendências mais recentes e melhores práticas no campo da
-        tecnologia, buscando aprender e aplicar novos conceitos em meus projetos. Sou um aprendiz ávido e
-        estou
-        sempre em busca de novos conhecimentos e desafios que me ajudem a crescer como desenvolvedor.
+        Tenho experiência prática no desenvolvimento de SPAs, APIs REST, sistemas com
+        autenticação, integração com serviços externos (como reCAPTCHA, e-mail e Firebase),
+        além de deploy e configuração de ambientes em produção. Trabalho com JavaScript
+        e TypeScript no frontend e backend, utilizando frameworks modernos e boas práticas
+        de engenharia de software.
+        <br><br>
+        Ao longo dos meus projetos, desenvolvi sistemas reais utilizados por clientes,
+        o que me permitiu lidar com requisitos práticos, manutenção de código, organização
+        de dados e tomada de decisões técnicas. Tenho facilidade em aprender novas tecnologias
+        e transformar problemas reais em soluções funcionais e bem pensadas.
       </article>
     </section>
     <h2>Um pouco mais sobre mim</h2>
     <section class="sobre">
       <article>
-        Este portfólio é um reflexo dos meus esforços para aprimorar minhas habilidades e mostrar meu potencial
-        como
-        desenvolvedor. Cada projeto apresentado aqui representa meu empenho em aprender, experimentar e superar
-        obstáculos ao longo do caminho.
-        Estou animado com a possibilidade de colaborar em projetos desafiadores e trabalhar em equipe para
-        transformar ideias em realidade.
-
-        Embora não tenha experiência profissional, minha paixão e dedicação são
-        evidentes em cada linha de código que escrevo.
-        Convido você a explorar meu portfólio e conhecer meus projetos pessoais. Ficarei feliz em discutir
-        oportunidades de colaboração ou compartilhar mais detalhes sobre meu trabalho. Estou ansioso para
-        continuar
-        aprendendo e crescendo como desenvolvedor.
+        Este portfólio reúne projetos que representam minha evolução técnica e minha
+        capacidade de construir soluções completas do zero. Cada aplicação foi pensada
+        considerando fluxo do usuário, estrutura de dados, segurança e escalabilidade.
+        <br><br>
+        Tenho interesse em projetos desafiadores, produtos digitais e ambientes onde
+        arquitetura, código limpo e boas decisões técnicas fazem diferença. Valorizo
+        colaboração, organização e clareza na comunicação técnica, tanto no código quanto
+        no trabalho em equipe.
+        <br><br>
+        Estou sempre aprimorando minhas habilidades, explorando novas abordagens e
+        ferramentas quando necessário, sem perder o foco em entregar soluções estáveis,
+        eficientes e bem construídas.
       </article>
     </section>
     <!--Habilidades-->
     <h2>Habilidades</h2>
     <section class="habilidades" id="habilidades">
       <ul>
-        <li><img src="../assets/static/habilidades/html.png" alt="html logo"></li>
-        <li><img src="../assets/static/habilidades/css.png" alt="css logo"></li>
-        <li><img src="../assets/static/habilidades/js.png" alt="javascript logo"></li>
-        <li><img src="../assets/static/habilidades/mysql.png" alt="mysql logo"></li>
+        <li><img src="../assets/static/habilidades/html.png" alt="html"></li>
+        <li><img src="../assets/static/habilidades/css.png" alt="css"></li>
+        <li><img src="../assets/static/habilidades/js.png" alt="javascript"></li>
+        <li><img src="../assets/static/habilidades/react.png" alt="react"></li>
+        <li><img src="../assets/static/habilidades/typescript.png" alt="typescript"></li>
       </ul>
       <ul>
-        <li><img src="../assets/static/habilidades/docker.png" alt="docker logo"></li>
-        <li><img src="../assets/static/habilidades/react.png" alt="react logo"></li>
-        <li><img src="../assets/static/habilidades/debian.png" alt="debian logo"></li>
-        <li><img src="../assets/static/habilidades/sqlite.png" alt="sqlite logo"></li>
+        <li><img src="../assets/static/habilidades/debian.png" alt="debian"></li>
+        <li><img src="../assets/static/habilidades/docker.png" alt="docker"></li>
+        <li><img src="../assets/static/habilidades/mysql.png" alt="mysql"></li>
+        <li><img src="../assets/static/habilidades/sqlite.png" alt="sqlite"></li>
+        <li><img src="../assets/static/habilidades/firebase-logo.png" alt="firebase"></li>
+        <li><img src="../assets/static/habilidades/gimp.png" alt="gimp"></li>
       </ul>
       <ul>
-        <li><img src="../assets/static/habilidades/node.png" alt="node logo"></li>
-        <li><img src="../assets/static/habilidades/gimp.png" alt="gimp logo"></li>
-        <li><img src="../assets/static/habilidades/java.png" alt="Java logo"></li>
-        <li><img src="../assets/static/habilidades/php.png" alt="php logo"></li>
+        <li><img src="../assets/static/habilidades/node.png" alt="node"></li>
+        <li><img src="../assets/static/habilidades/java.png" alt="Java"></li>
+        <li><img src="../assets/static/habilidades/php.png" alt="php"></li>
+        <li><img src="../assets/static/habilidades/apiRest-logo.png" alt="apiRest"></li>
+        <li><img src="../assets/static/habilidades/autenticacao-logo.png" alt="autenticação"></li>
 
       </ul>
       <div class="descricao">
         <p>
-          Como desenvolvedor Full-Stack, possuo habilidades sólidas em diversas tecnologias
-          e ferramentas essenciais para a criação de aplicações web modernas e funcionais.
+          Atuo como desenvolvedor Full Stack com forte foco em backend, arquitetura de sistemas
+          e segurança de aplicações. Tenho experiência na construção de APIs robustas,
+          autenticação e autorização, integração com serviços externos, validação de dados
+          e proteção contra vulnerabilidades comuns em aplicações web.
           <br><br>
-          Busco aplicar meus conhecimentos para criar interfaces responsivas e atraentes,
-          desenvolver funcionalidades interativas e dinâmicas, além de garantir a
-          integração das aplicações com bancos de dados para o armazenamento e recuperação
-          de informações importantes.
+          No frontend, trabalho com frameworks modernos como React e Vue quando necessário,
+          priorizando integração eficiente com o backend, performance e previsibilidade
+          do fluxo de dados.
           <br><br>
-          Estou sempre aberto a aprender novas tecnologias e
-          enfrentar desafios para aprimorar minhas habilidades como desenvolvedor.
+          Possuo atenção especial a boas práticas de segurança, controle de acesso,
+          gerenciamento de segredos, validação de requisições e configuração correta de
+          ambientes em produção.
         </p>
       </div>
     </section>
@@ -132,13 +133,6 @@ export default defineComponent({
         <p>Código: <strong style="color: red;">Restrito</strong></p>
       </div>
       <div>
-        <h2>Api de Pokemon</h2>
-        <img src="../assets/static/projetos/pokeApi.png" alt="API-Pokemon">
-        <article>Fiz um mini projeto de pegar os personagens do pokémon. Ele retorna o nome, peso, altura e a
-          imagem. A seguir o link para acessar o projeto:</article>
-        <p>Link: <a href="https://danieldeveloperbr.github.io/API-Pokemon/" target="_blank">Clica aqui</a></p>
-      </div>
-      <div>
         <h2>Curiosidades de Tecnologia</h2>
         <img src="../assets/static/projetos/bugdroid.png" alt="Bug android">
         <article>O artigo <strong>História do Mascote Android</strong> explora a evolução do
@@ -148,22 +142,19 @@ export default defineComponent({
         <p>Link: <a href="https://danieldeveloperbr.github.io/android/" target="_blank">Clica aqui</a></p>
       </div>
       <div>
-        <h2>Calculadora</h2>
-        <img src="../assets/static/calcFormatado.png" alt="Calculadora">
-        <article>Uma calculadora com funcionalidades de somar, subtrair, multiplicar e dividir</article>
-        <p>Link: <a href="https://danieldeveloperbr.github.io/Minha-Calculadora/" target="_blank">Clica aqui</a>
-        </p>
-      </div>
-      <div>
         <h2>RPG Online de Turnos</h2>
         <img src="../assets/static/projetos/jogo.png" alt="RPG de turnos">
-        <article>Um jogo online de 2 vs 2 onde você escolhe um personagem com uma única habilidade especial e com os seus atributos. O jogo têm 3 classes de personagens por enquanto que são: Bárbaro, Arqueiro e Mago.</article>
+        <article>Um jogo online de 2 vs 2 onde você escolhe um personagem com uma única habilidade especial e com os
+          seus atributos. O jogo têm 3 classes de personagens por enquanto que são: Bárbaro, Arqueiro e Mago.</article>
         <p>Link: <a href="https://rpg-online-v5tk.onrender.com/" target="_blank">Clica aqui</a></p>
       </div>
       <div>
         <h2>Agendamento Expresso</h2>
         <img src="../assets/static/projetos/agendamento expresso.png" alt="API-Pokemon">
-        <article>O agendamento Expresso é um sistema moderno e responsivo de agendamento de horários para estabelecimentos, desenvolvido com foco em usabilidade, segurança e escalabilidade. Ele permite que clientes reservem horários online de forma prática, enquanto o administrador tem acesso a uma interface limpa para gerenciar reservas.</article>
+        <article>O agendamento Expresso é um sistema moderno e responsivo de agendamento de horários para
+          estabelecimentos, desenvolvido com foco em usabilidade, segurança e escalabilidade. Ele permite que clientes
+          reservem horários online de forma prática, enquanto o administrador tem acesso a uma interface limpa para
+          gerenciar reservas.</article>
         <p>Link: <a href="https://danieldeveloperbr.github.io/Projeto-ReservaNaLoja/" target="_blank">Clica aqui</a></p>
       </div>
     </section>

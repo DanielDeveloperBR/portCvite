@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-declare const grecaptcha: any; 
+declare const grecaptcha: any;
 const recaptchaScriptLoaded = ref(false);
+const isLoading = ref(false);
+const isSuccess = ref(false);
+const isError = ref(false);
 
 onMounted(() => {
   const script = document.createElement('script');
@@ -20,6 +23,10 @@ const successMessage = ref(false);
 async function handlerSubmit(e: Event) {
   e.preventDefault();
 
+  isLoading.value = true;
+  isSuccess.value = false;
+  isError.value = false;
+  responseMessage.value = '';
   const nome = (document.querySelector('#nome') as HTMLInputElement).value;
   const email = (document.querySelector('#email') as HTMLInputElement).value;
   const assunto = (document.querySelector('#assunto') as HTMLInputElement).value;
@@ -28,7 +35,6 @@ async function handlerSubmit(e: Event) {
   try {
     const token = await grecaptcha.execute(import.meta.env.VITE_CHAVE_PUBLICA, { action: 'submit' });
 
-    // Valida o token no backend
     const recaptchaResponse = await fetch('/api/validateRecaptcha', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -38,13 +44,10 @@ async function handlerSubmit(e: Event) {
     const recaptchaResult = await recaptchaResponse.json();
 
     if (!recaptchaResult.valid) {
-      responseMessage.value = 'Erro na validação do reCAPTCHA. Por favor, tente novamente.';
-      successMessage.value = false;
-      return;
+      throw new Error('Recaptcha inválido');
     }
 
-    // Envia os dados do formulário
-    const response = await fetch(`/api/sendEmail`, {
+    const response = await fetch('/api/sendEmail', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ nome, email, assunto, mensagem }),
@@ -52,11 +55,15 @@ async function handlerSubmit(e: Event) {
 
     const result = await response.json();
 
+    if (!result.success) throw new Error();
+
     responseMessage.value = result.message;
-    successMessage.value = result.success;
-  } catch (error) {
-    responseMessage.value = 'Erro ao enviar o email. Por favor, tente novamente.';
-    successMessage.value = false;
+    isSuccess.value = true;
+  } catch {
+    responseMessage.value = 'Não foi possível enviar a mensagem. Tente novamente.';
+    isError.value = true;
+  } finally {
+    isLoading.value = false;
   }
 }
 </script>
@@ -78,12 +85,25 @@ async function handlerSubmit(e: Event) {
         <label for="mensagem">Mensagem:</label>
         <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem" rows="10" required></textarea>
 
-        <button>Enviar</button>
+        <button type="submit" :disabled="isLoading" class="submit-btn" :class="{
+          loading: isLoading,
+          successBtn: isSuccess,
+          errorBtn: isError
+        }">
+          <span class="btn-content">
+            <span v-if="!isLoading && !isSuccess">Enviar</span>
+            <span v-if="isLoading" class="spinner"></span>
+            <span v-if="isSuccess">✔ Enviado</span>
+          </span>
+        </button>
+
+
+        <transition name="fade-slide">
+          <p v-if="responseMessage" :class="isSuccess ? 'success' : 'error'">
+            {{ responseMessage }}
+          </p>
+        </transition>
       </form>
-      <!-- Mensagem de status -->
-      <p :class="successMessage ? 'success' : 'error'" v-if="responseMessage">
-        {{ responseMessage }}
-      </p>
     </div>
   </section>
 </template>
