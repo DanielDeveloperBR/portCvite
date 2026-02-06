@@ -26,12 +26,14 @@ Se você está procurando um desenvolvedor motivado, com uma mentalidade voltada
 - HTML
 - CSS
 - JavaScript
+- Typescript
 - PHP
 - Java
 - NodeJs
 - Ionic
 - Angular
 - React
+- Firebase
 - Git
 - Linux
 - Responsividade
