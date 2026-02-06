@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: Request, res: Response) {
   if (req.method !== 'POST') {
     return res.status(405).json({ valid: false, message: 'Método não permitido' });
   }
@@ -25,7 +25,7 @@ export default async function handler(req: any, res: any) {
     const recaptchaData = await recaptchaResponse.json();
 
     // Verifique o sucesso e o score da resposta do reCAPTCHA
-    if (!recaptchaData.success || recaptchaData.score < 0.5) {
+    if (!recaptchaData.success) {
       return res.status(400).json({ valid: false, message: 'Falha na verificação reCAPTCHA' });
     }
 
