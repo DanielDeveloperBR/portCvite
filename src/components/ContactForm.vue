@@ -9,7 +9,7 @@ const isError = ref(false);
 
 onMounted(() => {
   const script = document.createElement('script');
-  script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_CHAVE_PUBLICA}`;
+  script.src = `https://www.google.com/recaptcha/enterprise.js?render=${import.meta.env.VITE_CHAVE_PUBLICA}`;
   script.async = true;
   script.onload = () => {
     recaptchaScriptLoaded.value = true;
@@ -18,7 +18,6 @@ onMounted(() => {
 });
 
 const responseMessage = ref('');
-const successMessage = ref(false);
 
 async function handlerSubmit(e: Event) {
   e.preventDefault();
