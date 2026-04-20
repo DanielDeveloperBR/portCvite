@@ -37,7 +37,7 @@ export default defineComponent({
         <img src="../assets/static/minhaFoto.jpg" alt="Daniel Souza">
         <p title="Daniel Souza">Daniel Souza</p>
         <a href="https://github.com/DanielDeveloperBR" target="_blank">Meu Github</a>
-        <p>danieldetrabalho@hotmail.com</p>
+        <a href="mailto: danieldetrabalho1@gmail.com">danieldetrabalho1@gmail.com</a>
       </picture>
     </section>
 
