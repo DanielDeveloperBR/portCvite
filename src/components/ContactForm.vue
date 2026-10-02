@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-declare const grecaptcha: any;
+declare const grecaptcha: {
+  ready: (callback: () => void) => void;
+  execute: (siteKey: string, options: { action: string }) => Promise<string>;
+};
 const recaptchaScriptLoaded = ref(false);
 const isLoading = ref(false);
 const isSuccess = ref(false);
 const isError = ref(false);
 
 onMounted(() => {
+  const siteKey = import.meta.env.VITE_CHAVE_PUBLICA;
+  if (!siteKey) return;
+
   const script = document.createElement('script');
-  script.src = `https://www.google.com/recaptcha/enterprise.js?render=${import.meta.env.VITE_CHAVE_PUBLICA}`;
+  script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
   script.async = true;
   script.onload = () => {
     recaptchaScriptLoaded.value = true;
@@ -32,7 +38,14 @@ async function handlerSubmit(e: Event) {
   const mensagem = (document.querySelector('#mensagem') as HTMLTextAreaElement).value;
 
   try {
-    const token = await grecaptcha.execute(import.meta.env.VITE_CHAVE_PUBLICA, { action: 'submit' });
+    const siteKey = import.meta.env.VITE_CHAVE_PUBLICA;
+
+    if (!siteKey || !recaptchaScriptLoaded.value || typeof grecaptcha === 'undefined') {
+      throw new Error('reCAPTCHA indisponível');
+    }
+
+    await new Promise<void>((resolve) => grecaptcha.ready(resolve));
+    const token = await grecaptcha.execute(siteKey, { action: 'submit' });
 
     const recaptchaResponse = await fetch('/api/validateRecaptcha', {
       method: 'POST',
@@ -58,7 +71,8 @@ async function handlerSubmit(e: Event) {
 
     responseMessage.value = result.message;
     isSuccess.value = true;
-  } catch {
+  } catch (e){
+    console.error('Erro ao enviar a mensagem: ', e);
     responseMessage.value = 'Não foi possível enviar a mensagem. Tente novamente.';
     isError.value = true;
   } finally {

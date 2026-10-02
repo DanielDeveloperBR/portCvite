@@ -1,211 +1,364 @@
-<script lang="ts">
-import { defineComponent, onMounted } from 'vue';
-import { smoothScrollTo } from '../utils/scrollHandler';
+<script setup lang="ts">
 import ContactForm from './ContactForm.vue';
 
-export default defineComponent({
-  name: 'Main',
-  components: {
-    ContactForm,
+const stackPrincipal = [
+  'React',
+  'TypeScript',
+  'Node.js',
+  'Express',
+  'PostgreSQL',
+  'Firebase',
+  'Docker',
+  'Linux',
+];
+
+const capacidades = [
+  {
+    titulo: 'Backend & arquitetura',
+    texto: 'APIs REST, services, middlewares, validação, autenticação, autorização e regras de negócio.',
+    itens: ['Node.js', 'TypeScript', 'Express', 'REST', 'JWT / cookies', 'RBAC'],
   },
-  setup() {
-    onMounted(() => {
-      const links = document.querySelectorAll('#menu li a');
-      links.forEach(link =>
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          const id = link.getAttribute('href');
-          if (id) smoothScrollTo(id);
-        })
-      );
-    });
+  {
+    titulo: 'Frontend de produto',
+    texto: 'Interfaces integradas a fluxos reais, formulários complexos, estados previsíveis e manutenção de bases existentes.',
+    itens: ['React', 'Vue', 'Angular', 'TypeScript', 'Vite', 'UX operacional'],
   },
-});
+  {
+    titulo: 'Dados & plataforma',
+    texto: 'Modelagem relacional e NoSQL, persistência, regras de acesso e integrações com serviços gerenciados.',
+    itens: ['PostgreSQL', 'SQLite', 'Firestore', 'Firebase Auth', 'Storage', 'Functions'],
+  },
+  {
+    titulo: 'Produção & qualidade',
+    texto: 'Deploy, proxy reverso, containers, logs, segurança web e testes direcionados a comportamento crítico.',
+    itens: ['Linux', 'Docker', 'Nginx', 'PM2', 'Vitest / Jest', 'Git'],
+  },
+];
+
+const formaDeTrabalho = [
+  {
+    passo: '01',
+    titulo: 'Entendo o impacto antes de alterar',
+    texto: 'Mapeio fluxo, dependências e contratos para evitar correções que resolvem um ponto e quebram outro.',
+  },
+  {
+    passo: '02',
+    titulo: 'Protejo comportamento crítico',
+    texto: 'Quando o risco de regressão existe, uso testes e validação direcionada como parte da correção.',
+  },
+  {
+    passo: '03',
+    titulo: 'Entrego além da tela',
+    texto: 'Considero API, dados, segurança, deploy, rollback e manutenção; Não apenas a implementação isolada.',
+  },
+  {
+    passo: '04',
+    titulo: 'Explico decisões e trade-offs',
+    texto: 'Registro o motivo das escolhas técnicas, riscos remanescentes e o que precisa ser observado depois da entrega.',
+  },
+];
 </script>
 
 <template>
-  <main>
-    <!--Principal-->
-    <section class="principal">
-      <div>
-        <h1>Daniel Souza</h1>
-        <p>Desenvolvedor Full-Stack</p>
+  <main id="top">
+    <section class="principal hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">FULL STACK · PRODUTO · ENGENHARIA</p>
+        <h1 id="hero-title">Construo e evoluo sistemas reais, do código à produção.</h1>
+        <p class="hero-lead">
+          Atuo de ponta a ponta em aplicações reais: frontend, backend, dados e infraestrutura, com foco em
+          regras de negócio, segurança, testes de regressão e manutenção sustentável.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#experiencia">Ver experiência</a>
+          <a class="button button-secondary" href="#projetos">Ver cases</a>
+          <a class="text-link" href="https://github.com/DanielDeveloperBR" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+
+        <div class="stack-list" aria-label="Stack principal">
+          <span v-for="tecnologia in stackPrincipal" :key="tecnologia">{{ tecnologia }}</span>
+        </div>
       </div>
 
-      <picture>
-        <source media="(max-width: 600px)" srcset="../assets/static/minhaFoto.jpg" alt="Daniel Souza">
-        <img src="../assets/static/minhaFoto.jpg" alt="Daniel Souza">
-        <p title="Daniel Souza">Daniel Souza</p>
-        <a href="https://github.com/DanielDeveloperBR" target="_blank">Meu Github</a>
-        <a href="mailto: danieldetrabalho1@gmail.com">danieldetrabalho1@gmail.com</a>
-      </picture>
+      <aside class="hero-profile" aria-label="Resumo profissional de Daniel Souza">
+        <img src="../assets/static/minhaFoto.jpg" alt="Daniel Souza" />
+        <div>
+          <p class="profile-name">Daniel Souza</p>
+          <p class="profile-role">Full Stack Developer</p>
+        </div>
+
+        <div class="profile-proof">
+          <span>Sistemas em produção</span>
+          <span>Entrega ponta a ponta</span>
+          <span>Remoto · PJ</span>
+        </div>
+
+        <a class="profile-link" href="https://www.linkedin.com/in/daniel-desenvolvedor/" target="_blank" rel="noreferrer">
+          LinkedIn ↗
+        </a>
+      </aside>
     </section>
 
-    <!--Sobre mim-->
-    <h2>Sobre mim</h2>
-    <section class="sobre" id="sobre">
-      <article>
-        Sou Daniel Souza, desenvolvedor Full Stack com foco em backend, arquitetura de sistemas
-        e segurança de aplicações web. Atuo na construção de soluções robustas e escaláveis,
-        com atenção especial à confiabilidade, controle de acesso e integridade dos dados.
-        <br><br>
-        Tenho experiência prática no desenvolvimento de SPAs, APIs REST, sistemas com
-        autenticação, integração com serviços externos (como reCAPTCHA, e-mail e Firebase),
-        além de deploy e configuração de ambientes em produção. Trabalho com JavaScript
-        e TypeScript no frontend e backend, utilizando frameworks modernos e boas práticas
-        de engenharia de software.
-        <br><br>
-        Ao longo dos meus projetos, desenvolvi sistemas reais utilizados por clientes,
-        o que me permitiu lidar com requisitos práticos, manutenção de código, organização
-        de dados e tomada de decisões técnicas. Tenho facilidade em aprender novas tecnologias
-        e transformar problemas reais em soluções funcionais e bem pensadas.
-      </article>
+    <section class="proof-bar" aria-label="Resumo de atuação">
+      <div class="section-shell proof-grid">
+        <article>
+          <strong>Base profissional existente</strong>
+          <span>Manutenção, evolução e regressão</span>
+        </article>
+        <article>
+          <strong>Produto próprio end-to-end</strong>
+          <span>API, frontend, dados e infraestrutura</span>
+        </article>
+        <article>
+          <strong>Segurança aplicada</strong>
+          <span>Auth, autorização, validação e acesso</span>
+        </article>
+        <article>
+          <strong>Produção</strong>
+          <span>Linux, Docker, Nginx, logs e deploy</span>
+        </article>
+      </div>
     </section>
-    <h2>Um pouco mais sobre mim</h2>
-    <section class="sobre">
-      <article>
-        Este portfólio reúne projetos que representam minha evolução técnica e minha
-        capacidade de construir soluções completas do zero. Cada aplicação foi pensada
-        considerando fluxo do usuário, estrutura de dados, segurança e escalabilidade.
-        <br><br>
-        Tenho interesse em projetos desafiadores, produtos digitais e ambientes onde
-        arquitetura, código limpo e boas decisões técnicas fazem diferença. Valorizo
-        colaboração, organização e clareza na comunicação técnica, tanto no código quanto
-        no trabalho em equipe.
-        <br><br>
-        Estou sempre aprimorando minhas habilidades, explorando novas abordagens e
-        ferramentas quando necessário, sem perder o foco em entregar soluções estáveis,
-        eficientes e bem construídas.
-      </article>
-    </section>
-    <!--Habilidades-->
-    <h2>Habilidades</h2>
-    <section class="habilidades" id="habilidades">
-      <ul>
-        <li><img src="../assets/static/habilidades/html.png" alt="html"></li>
-        <li><img src="../assets/static/habilidades/css.png" alt="css"></li>
-        <li><img src="../assets/static/habilidades/js.png" alt="javascript"></li>
-        <li><img src="../assets/static/habilidades/react.png" alt="react"></li>
-        <li><img src="../assets/static/habilidades/typescript.png" alt="typescript"></li>
-      </ul>
-      <ul>
-        <li><img src="../assets/static/habilidades/debian.png" alt="debian"></li>
-        <li><img src="../assets/static/habilidades/docker.png" alt="docker"></li>
-        <li><img src="../assets/static/habilidades/mysql.png" alt="mysql"></li>
-        <li><img src="../assets/static/habilidades/sqlite.png" alt="sqlite"></li>
-        <li><img src="../assets/static/habilidades/firebase-logo.png" alt="firebase"></li>
-        <li><img src="../assets/static/habilidades/gimp.png" alt="gimp"></li>
-      </ul>
-      <ul>
-        <li><img src="../assets/static/habilidades/node.png" alt="node"></li>
-        <li><img src="../assets/static/habilidades/java.png" alt="Java"></li>
-        <li><img src="../assets/static/habilidades/php.png" alt="php"></li>
-        <li><img src="../assets/static/habilidades/apiRest-logo.png" alt="apiRest"></li>
-        <li><img src="../assets/static/habilidades/autenticacao-logo.png" alt="autenticação"></li>
 
-      </ul>
-      <div class="descricao">
+    <section id="experiencia" class="section-shell section-block">
+      <div class="section-heading section-heading-wide">
+        <p class="eyebrow">EXPERIÊNCIA PROFISSIONAL</p>
+        <h2>Trabalho em sistema real exige mais do que fazer a feature funcionar.</h2>
         <p>
-          Atuo como desenvolvedor Full Stack com forte foco em backend, arquitetura de sistemas
-          e segurança de aplicações. Tenho experiência na construção de APIs robustas,
-          autenticação e autorização, integração com serviços externos, validação de dados
-          e proteção contra vulnerabilidades comuns em aplicações web.
-          <br><br>
-          No frontend, trabalho com frameworks modernos como React e Vue quando necessário,
-          priorizando integração eficiente com o backend, performance e previsibilidade
-          do fluxo de dados.
-          <br><br>
-          Possuo atenção especial a boas práticas de segurança, controle de acesso,
-          gerenciamento de segredos, validação de requisições e configuração correta de
-          ambientes em produção.
+          Minha atuação mais relevante hoje é em uma base profissional existente, onde mudanças precisam respeitar
+          regras já utilizadas, permissões, dados, integrações e comportamento anterior.
+        </p>
+      </div>
+
+      <article class="experience-card">
+        <div class="experience-topline">
+          <div>
+            <p class="case-label">CASE PROFISSIONAL · CÓDIGO RESTRITO</p>
+            <h3>VistoriApp / Web Fire Risk</h3>
+            <p class="experience-subtitle">Sistema técnico para fluxos de vistoria, engenharia e documentação.</p>
+          </div>
+          <div class="case-status">Sistema real</div>
+        </div>
+
+        <div class="experience-grid">
+          <div>
+            <p class="mini-title">Escopo de atuação</p>
+            <ul class="check-list">
+              <li>Evolução e manutenção de funcionalidades em uma base já utilizada.</li>
+              <li>Fluxos de laudos, inconformidades, anexos, relatórios, assinaturas e documentos.</li>
+              <li>Formulários técnicos e regras de negócio com múltiplos estados e dependências.</li>
+              <li>Correções com análise de impacto e proteção contra regressões.</li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="mini-title">Responsabilidade técnica</p>
+            <ul class="check-list">
+              <li>Firebase Auth, Firestore, Storage e Functions.</li>
+              <li>Permissões por dono, colaborador e editor.</li>
+              <li>Revisão de segurança, upload, cache/offline e acesso a dados.</li>
+              <li>Services, validações, testes e ajustes de UX em fluxos críticos.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-tags" aria-label="Tecnologias do VistoriApp">
+          <span>React</span><span>TypeScript</span><span>Firebase</span><span>Vitest</span><span>Segurança</span><span>PDF</span>
+        </div>
+      </article>
+    </section>
+
+    <section id="projetos" class="section-block projects-section">
+      <div class="section-shell">
+        <div class="section-heading section-heading-wide">
+          <p class="eyebrow">CASES SELECIONADOS</p>
+          <h2>Projetos escolhidos pelo que demonstram de engenharia.</h2>
+          <p>
+            Menos projetos de estudo e mais contexto: problema, responsabilidade, decisões técnicas e operação.
+          </p>
+        </div>
+
+        <div class="cases-grid">
+          <article class="case-card case-card-featured">
+            <div class="case-card-header">
+              <div>
+                <p class="case-label">PRODUTO PRÓPRIO · FULL STACK</p>
+                <h3>Aguentaí</h3>
+              </div>
+              <span class="case-badge">End-to-end</span>
+            </div>
+
+            <p class="case-lead">
+              Plataforma financeira com autenticação, orçamento, metas, grupos, diagnóstico financeiro,
+              regras de plano e recursos assistidos por IA.
+            </p>
+
+            <div class="case-columns">
+              <div>
+                <p class="mini-title">O que construí</p>
+                <ul class="check-list compact">
+                  <li>Backend Node.js/TypeScript organizado por domínios e serviços.</li>
+                  <li>PostgreSQL, autenticação, autorização e middlewares de plano.</li>
+                  <li>Frontend integrado a fluxos financeiros e regras de produto.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="mini-title">O que isso demonstra</p>
+                <ul class="check-list compact">
+                  <li>Decisão de arquitetura com manutenção e evolução em mente.</li>
+                  <li>Testes automatizados no frontend e backend.</li>
+                  <li>Deploy em VPS Linux com Docker, Nginx, domínio e logs.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-tags">
+              <span>React</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Docker</span><span>Nginx</span>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-card-header">
+              <div>
+                <p class="case-label">SISTEMA COMERCIAL · 2024</p>
+                <h3>Gestão para salão de beleza</h3>
+              </div>
+            </div>
+            <img class="case-image" src="../assets/static/imgSalao.png" alt="Tela do sistema de gestão para salão de beleza" />
+            <p>
+              Sistema com autenticação, recuperação de senha, agendamentos, estoque, vendas e relatórios financeiros.
+              A persistência começou em SQLite e evoluiu para PostgreSQL.
+            </p>
+            <div class="project-tags">
+              <span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Auth</span><span>CRUD</span>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-card-header">
+              <div>
+                <p class="case-label">TEMPO REAL · PROJETO PUBLICADO</p>
+                <h3>RPG online por turnos</h3>
+              </div>
+            </div>
+            <img class="case-image" src="../assets/static/projetos/jogo.png" alt="Tela do RPG online por turnos" />
+            <p>
+              Multiplayer com fila de jogadores, estado de partida, classes, ações por turno e sincronização entre clientes.
+            </p>
+            <div class="project-tags">
+              <span>Node.js</span><span>Express</span><span>WebSocket</span><span>Estado</span><span>Tempo real</span>
+            </div>
+            <a class="text-link" href="https://rpg-online-v5tk.onrender.com/" target="_blank" rel="noreferrer">Abrir projeto ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades" class="section-shell section-block">
+      <div class="section-heading section-heading-wide">
+        <p class="eyebrow">STACK & CAPACIDADES</p>
+        <h2>Meu nível aparece no tipo de problema que consigo assumir.</h2>
+        <p>
+          A stack é parte da história. O ponto principal é conseguir ligar frontend, backend, dados, segurança e produção
+          sem perder legibilidade e previsibilidade do sistema.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <article v-for="grupo in capacidades" :key="grupo.titulo" class="skill-group">
+          <h3>{{ grupo.titulo }}</h3>
+          <p>{{ grupo.texto }}</p>
+          <div>
+            <span v-for="item in grupo.itens" :key="item">{{ item }}</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block work-section">
+      <div class="section-shell">
+        <div class="section-heading section-heading-wide">
+          <p class="eyebrow">COMO EU TRABALHO</p>
+          <h2>Processo técnico que reduz surpresa depois da entrega.</h2>
+        </div>
+
+        <div class="work-grid">
+          <article v-for="item in formaDeTrabalho" :key="item.passo" class="work-card">
+            <span>{{ item.passo }}</span>
+            <h3>{{ item.titulo }}</h3>
+            <p>{{ item.texto }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section-shell section-block about-section">
+      <div class="about-title">
+        <p class="eyebrow">SOBRE</p>
+        <h2>Visão do sistema inteiro, sem perder o detalhe da implementação.</h2>
+      </div>
+
+      <div class="about-copy">
+        <p>
+          Sou Daniel Souza, desenvolvedor Full Stack. Meu trabalho combina frontend, backend e infraestrutura, com
+          preferência por problemas em que é preciso entender a regra de negócio e o impacto da mudança no sistema como um todo.
+        </p>
+        <p>
+          Em bases existentes, priorizo preservar contratos e comportamento antes de refatorar. Em projetos novos,
+          busco separar responsabilidades, reduzir acoplamento e deixar espaço para evolução sem criar complexidade antes da hora.
+        </p>
+        <p>
+          Também gosto de assumir responsabilidade por módulos completos: investigar, propor, implementar, testar,
+          documentar o necessário e acompanhar o que acontece depois do deploy.
         </p>
       </div>
     </section>
 
-    <!-- Projetos -->
-    <h2>Projetos</h2>
-    <section class="projetos" id="projetos">
-      <div>
-        <h2>Controle de Estoque para Salão de Beleza</h2>
-        <img src="../assets/static/imgSalao.png" alt="Salão">
-        <article>Desenvolvimento de um sistema de gestão completo para um salão de beleza.
-        </article>
-        <p>Código: <strong style="color: red;">Restrito</strong></p>
-      </div>
-      <div>
-        <h2>Curiosidades de Tecnologia</h2>
-        <img src="../assets/static/projetos/bugdroid.png" alt="Bug android">
-        <article>O artigo <strong>História do Mascote Android</strong> explora a evolução do
-          <strong>Bugdroid</strong> e a associação das versões a doces. Uma apresentação profissional e
-          envolvente, demonstrando habilidades de desenvolvimento e atenção aos detalhes.
-        </article>
-        <p>Link: <a href="https://danieldeveloperbr.github.io/android/" target="_blank">Clica aqui</a></p>
-      </div>
-      <div>
-        <h2>RPG Online de Turnos</h2>
-        <img src="../assets/static/projetos/jogo.png" alt="RPG de turnos">
-        <article>Um jogo online de 2 vs 2 onde você escolhe um personagem com uma única habilidade especial e com os
-          seus atributos. O jogo têm 3 classes de personagens por enquanto que são: Bárbaro, Arqueiro e Mago.</article>
-        <p>Link: <a href="https://rpg-online-v5tk.onrender.com/" target="_blank">Clica aqui</a></p>
-      </div>
-      <div>
-        <h2>Agendamento Expresso</h2>
-        <img src="../assets/static/projetos/agendamento expresso.png" alt="API-Pokemon">
-        <article>O agendamento Expresso é um sistema moderno e responsivo de agendamento de horários para
-          estabelecimentos, desenvolvido com foco em usabilidade, segurança e escalabilidade. Ele permite que clientes
-          reservem horários online de forma prática, enquanto o administrador tem acesso a uma interface limpa para
-          gerenciar reservas.</article>
-        <p>Link: <a href="https://danieldeveloperbr.github.io/Projeto-ReservaNaLoja/" target="_blank">Clica aqui</a></p>
+    <section id="avaliacoes" class="section-block testimonials-section">
+      <div class="section-shell">
+        <div class="section-heading section-heading-wide">
+          <p class="eyebrow">FEEDBACK DE CLIENTES</p>
+          <h2>Entrega técnica também precisa gerar confiança.</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <blockquote>
+            <p>“Profissional e de fácil comunicação.”</p>
+            <footer>
+              <strong>Rodrigo A.</strong>
+              <span>Projeto com reCAPTCHA · 99Freelas</span>
+            </footer>
+          </blockquote>
+
+          <blockquote>
+            <p>
+              “Sua habilidade técnica e comprometimento com a qualidade realmente se destacaram, proporcionando uma experiência de usuário incrível.”
+            </p>
+            <footer>
+              <strong>Edvaldo V.</strong>
+              <span>Implementação de telas e integração · 99Freelas</span>
+            </footer>
+          </blockquote>
+        </div>
+
+        <a class="text-link" href="https://www.99freelas.com.br/user/Daniel-Developer" target="_blank" rel="noreferrer">Ver avaliações no 99Freelas ↗</a>
       </div>
     </section>
 
-    <!-- Comentários -->
-    <h2>Avaliações de Clientes</h2>
-    <section class="comentarios" id="comentarios">
-      <a style="color: black;" href="https://www.99freelas.com.br/user/Daniel-Developer" target="_blank">Instalar
-        recaptcha em um site HTML
-      </a>
-      <p>Profissional e de fácil comunicação</p>
-      <div>Cliente: Rodrigo A.</div>
-      <span>
-        <span class="material-symbols-outlined">
-        </span>
-        <span class="material-symbols-outlined">
-        </span>
-        <span class="material-symbols-outlined">
-        </span>
-        <span class="material-symbols-outlined">
-        </span>
-        <span class="material-symbols-outlined">
-        </span>
-
-        <span>agosto 2023</span>
-      </span>
-    </section>
-
-    <section class="comentarios" id="comentarios">
-      <a style="color: black;" href="https://www.99freelas.com.br/user/Daniel-Developer" target="_blank">Integrar
-        API WhatsApp para abrir com QR Code
-      </a>
-      <p class="segundoParagrafo">Gostaria de expressar minha sincera admiração e gratidão pelo excepcional
-        trabalho que você realizou na implementação das telas em nosso sistema. Sua habilidade técnica e
-        comprometimento com a qualidade realmente se destacaram, proporcionando uma experiência de usuário
-        incrível</p>
-      <div>Cliente: Edvaldo V.</div>
-      <span>
-        <span class="material-symbols-outlined">
-        </span>
-        <span class="material-symbols-outlined">
-        </span>
-        <span class="material-symbols-outlined">
-        </span>
-        <span class="material-symbols-outlined">
-        </span>
-        <span class="material-symbols-outlined">
-        </span>&nbsp;
-
-        <span>agosto 2023</span>
-      </span>
+    <section class="contact-intro section-shell section-block" aria-labelledby="contact-title">
+      <div class="section-heading section-heading-wide">
+        <p class="eyebrow">CONTATO</p>
+        <h2 id="contact-title">Se você procura alguém para assumir um problema completo, podemos conversar.</h2>
+        <p>
+          Estou aberto a oportunidades Full Stack remotas e contratos PJ, especialmente com React, TypeScript,
+          Node.js, PostgreSQL, Firebase e ambientes Linux.
+        </p>
+        <div class="contact-links">
+          <a class="text-link" href="mailto:danieldetrabalho1@gmail.com">danieldetrabalho1@gmail.com</a>
+          <a class="text-link" href="https://www.linkedin.com/in/daniel-desenvolvedor/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
     </section>
 
     <ContactForm />

@@ -1,51 +1,65 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 const navegacao = ref<HTMLElement | null>(null);
+const menuAberto = ref(false);
 
-const toggleMenu = () => {
-  if (navegacao.value) {
-    if (navegacao.value.style.display === 'none' || !navegacao.value.style.display) {
-      navegacao.value.style.display = 'block';
-    } else {
-      navegacao.value.style.display = 'none';
-    }
+const aplicarEstadoMenu = () => {
+  if (!navegacao.value) return;
+
+  if (window.innerWidth >= 760) {
+    navegacao.value.style.display = 'block';
+    menuAberto.value = false;
+    return;
   }
+
+  navegacao.value.style.display = menuAberto.value ? 'block' : 'none';
 };
 
-const checkScreenSize = () => {
-  if (navegacao.value) {
-    if (window.innerWidth >= 650) {
-      navegacao.value.style.display = 'block';
-    } else {
-      navegacao.value.style.display = 'none';
-    }
-  }
+const toggleMenu = () => {
+  menuAberto.value = !menuAberto.value;
+  aplicarEstadoMenu();
+};
+
+const fecharMenu = () => {
+  if (window.innerWidth >= 760) return;
+  menuAberto.value = false;
+  aplicarEstadoMenu();
 };
 
 onMounted(() => {
-  checkScreenSize();
-  window.addEventListener('resize', checkScreenSize);
+  aplicarEstadoMenu();
+  window.addEventListener('resize', aplicarEstadoMenu);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', checkScreenSize);
+  window.removeEventListener('resize', aplicarEstadoMenu);
 });
 </script>
 
 <template>
-  <header>
-    <a href="index.html">D.S</a>
-    <button id="burguer" @click="toggleMenu">
-      <span class="material-symbols-outlined">menu</span>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Ir para o início">DS<span>.</span></a>
+
+    <button
+      id="burguer"
+      type="button"
+      aria-label="Abrir ou fechar menu"
+      :aria-expanded="menuAberto"
+      aria-controls="menu-principal"
+      @click="toggleMenu"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">menu</span>
     </button>
-    <nav ref="navegacao">
+
+    <nav ref="navegacao" id="menu-principal" aria-label="Navegação principal">
       <ul id="menu">
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#comentarios">Avaliações</a></li>
-        <li><a href="#contatos">Contatos</a></li>
+        <li><a href="#experiencia" @click="fecharMenu">Experiência</a></li>
+        <li><a href="#projetos" @click="fecharMenu">Cases</a></li>
+        <li><a href="#habilidades" @click="fecharMenu">Stack</a></li>
+        <li><a href="#sobre" @click="fecharMenu">Sobre</a></li>
+        <li><a href="#avaliacoes" @click="fecharMenu">Avaliações</a></li>
+        <li><a class="nav-cta" href="#contatos" @click="fecharMenu">Contato</a></li>
       </ul>
     </nav>
   </header>
