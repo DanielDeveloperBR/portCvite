@@ -4,31 +4,7 @@ import './assets/css/responsivo.css';
 import './assets/css/main.css';
 import './assets/css/hovers.css';
 import './assets/css/animacao.css';
-import './assets/css/spinner.css'
-import { animacoes } from '@/utils/animacoes'; 
-import router from './router/index';
+import './assets/css/spinner.css';
 import App from './App.vue';
 
-const app = createApp(App);
-
-app.use(router);
-app.mount('#app');
-
-// Executa a função animacoes após o carregamento do DOM
-document.addEventListener('DOMContentLoaded', () => {
-  animacoes();
-});
-
-// Verifica a visibilidade das seções
-const sections = document.querySelectorAll('section');
-function checkVisibility() {
-  sections.forEach((section) => {
-    const rect = section.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom >= 0;
-    if (isVisible) {
-      section.classList.add('active');
-    }
-  });
-}
-
-checkVisibility();
+createApp(App).mount('#app');
