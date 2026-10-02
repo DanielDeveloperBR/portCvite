@@ -1,49 +1,21 @@
-.principal.active,
-.sobre.active, .habilidades.active, .projetos.active, .contatos.active {
-    opacity: 1;
-    animation: fadeInLado 2.1s ease-out;
-}
-.active {
-    animation: fadeInUp 0.8s ease-out;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy,
+  .hero-profile {
+    animation: enter 560ms ease both;
+  }
 
+  .hero-profile {
+    animation-delay: 80ms;
+  }
 
-/* Animações */
-@keyframes fadeIn {
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
     to {
       opacity: 1;
+      transform: translateY(0);
     }
   }
-  
-  .animate-text span {
-    display: inline-block;
-    opacity: 0;
-  }
-
-
-  @keyframes fadeInUp {
-    to{
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-/* Animação de fade-in e deslize para cima */
-@keyframes fadeInLado {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }

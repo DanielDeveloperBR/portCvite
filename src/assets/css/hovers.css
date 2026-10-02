@@ -1,23 +1,46 @@
-/*Os hover*/
-/*Links*/
-a:hover,
-footer a:hover {
-    text-decoration: underline;
-    opacity: 0.6;
-}
-
-/*Menu hambúrguer*/
-#burguer:hover {
-    cursor: pointer;
-    color: black
-}
-
-/*Botao do formulario de enviar*/
-.modeloFormulario button:hover {
-    opacity: 0.3;
-    font-size: 17px;
-}
-.habilidades img:hover{
-    transform: rotate(15deg) scale(1.9); 
-    transition: transform 0.3s ease, background-color 0.3s ease;
+@media (hover: hover) {
+  .site-header nav a:hover,
+  .footer-inner nav a:hover,
+  .profile-link:hover,
+  .text-link:hover {
+    color: var(--text);
   }
+
+  .site-header nav a:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .button,
+  .case-card,
+  .skill-group,
+  .work-card,
+  .hero-profile {
+    transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-primary:hover {
+    background: var(--brand-strong);
+  }
+
+  .case-card:hover,
+  .skill-group:hover,
+  .work-card:hover,
+  .hero-profile:hover {
+    transform: translateY(-3px);
+    border-color: var(--line-strong);
+  }
+
+  #burguer:hover {
+    cursor: pointer;
+    border-color: var(--line-strong);
+  }
+
+  .modeloFormulario button:hover:not(:disabled) {
+    cursor: pointer;
+    filter: brightness(1.05);
+  }
+}

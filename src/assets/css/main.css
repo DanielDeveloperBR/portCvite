@@ -1,12 +1,9 @@
-a {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+:focus-visible {
+  outline: 3px solid #aeb1ff;
+  outline-offset: 3px;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+::selection {
+  color: #ffffff;
+  background: #2c33fa;
 }

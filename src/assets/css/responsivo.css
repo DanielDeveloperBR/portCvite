@@ -1,100 +1,180 @@
 @charset "UTF-8";
-@media (max-width: 765px){
-    .principal p, .principal h1{
-        text-align: center;
-      }
-}
-/* Estilos para telas menores que 650px de largura */
-@media all and (max-width: 650px) {
-    nav {
-        display: none;
-        left: 0;
-        top: 100%;
-        width: 100%;
-        background-color: var(--navbar);
-        position: absolute;
-    }
 
-    nav li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-top: 1px solid var(--menu);
-    }
+@media (max-width: 1040px) {
+  .principal.hero {
+    grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr);
+    gap: 42px;
+  }
 
-    #burguer {
-        display: block;
-    }
+  .proof-grid,
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-    .principal {
-        display: -webkit-box;
-        -webkit-box-pack: center;
-        -webkit-box-align: center;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        color: #000;
-        margin-top: 50px;
-        padding-top: 60px;
-      }
-      
+  .proof-grid article:nth-child(3) {
+    border-top: 1px solid var(--line);
+  }
 
-    section.principal div {
-        margin-top: 10vh;
-        margin-bottom: 10px;
-    }
-
-    .habilidades {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-   
-
-    .habilidades > .descricao {
-        grid-column: span 3;
-    }
-
+  .proof-grid article:nth-child(4) {
+    border-top: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
 }
 
-/* Comentarios */
-@media screen and (max-width: 505px) {
-    .comentarios {
-        grid-template-columns: 1fr;
-        /* Uma coluna em telas menores */
-    }
-    .comentarios > p.segundoParagrafo {
-        width: auto;
-    }
+@media (max-width: 760px) {
+  :root {
+    --header-height: 68px;
+  }
 
-    .comentarios a {
-        grid-column: 1;
-        grid-row: 1;
-    }
+  .section-shell {
+    width: min(100% - 28px, 1160px);
+  }
 
-    .comentarios div {
-        grid-column: 1;
-        grid-row: 2;
-    }
+  .section-block {
+    padding-block: 76px;
+  }
 
-    .comentarios p {
-        grid-column: 1;
-        grid-row: 3;
-        max-width: 80%;
-        margin: 8px auto;
-        white-space: normal;
-    }
+  #burguer {
+    display: inline-flex;
+  }
 
-    .comentarios p,
-    .comentarios div,
-    .comentarios a {
-        text-align: center;
-    }
+  .site-header nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 14px;
+    right: 14px;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: rgba(16, 18, 82, 0.98);
+    box-shadow: var(--shadow);
+  }
 
-    .comentarios span {
-        grid-column: 1;
-        grid-row: 4;
-        text-align: right;
-    }
+  .site-header nav ul {
+    display: grid;
+  }
+
+  .site-header nav a {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .site-header nav .nav-cta {
+    margin-left: 0;
+  }
+
+  .principal.hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding-top: calc(var(--header-height) + 72px);
+    padding-bottom: 72px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.65rem, 12vw, 4.4rem);
+  }
+
+  .hero-profile {
+    width: min(100%, 430px);
+    margin: auto;
+  }
+
+  .proof-grid,
+  .experience-grid,
+  .case-columns,
+  .cases-grid,
+  .skills-grid,
+  .work-grid,
+  .testimonials-grid,
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-grid article,
+  .proof-grid article:last-child,
+  .proof-grid article:nth-child(3),
+  .proof-grid article:nth-child(4) {
+    min-height: 104px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+
+  .proof-grid article:first-child {
+    border-top: 0;
+  }
+
+  .experience-topline,
+  .case-card-header {
+    align-items: flex-start;
+  }
+
+  .case-card-featured {
+    grid-column: auto;
+  }
+
+  .work-card {
+    min-height: auto;
+  }
+
+  .work-card h3 {
+    margin-top: 24px;
+  }
+
+  .about-section {
+    gap: 34px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-block: 30px;
+  }
+
+  .footer-copy {
+    text-align: left;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-actions {
+    align-items: stretch;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-actions .text-link {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .experience-topline,
+  .case-card-header {
+    display: grid;
+  }
+
+  .case-status,
+  .case-badge {
+    width: fit-content;
+  }
+
+  .experience-card,
+  .case-card,
+  .skill-group,
+  .work-card,
+  .testimonials-grid blockquote,
+  .container-form {
+    padding: 20px;
+  }
+
+  .container-form {
+    width: calc(100% - 28px);
+  }
+
+  .footer-inner nav {
+    flex-wrap: wrap;
+  }
 }
